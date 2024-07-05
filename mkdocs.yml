@@ -1,0 +1,189 @@
+site_name: ICOS Meta OS
+site_url: https://www.icos-project.eu/docs
+
+site_author: ICOS Consortium
+site_description: >-
+  This is the website for the ICOS Meta OS Software documentation
+
+copyright: >-
+  Copyright &copy; 2022 - 2024 ICOS Project
+
+#repo_url: 'https://production.eng.it/gitlab/icos'
+# not used but needed because otherwise the multirepo plugin thtows and exception
+edit_uri: 'https://production.eng.it/gitlab/icos/documentation'
+
+extra_css:
+  - assets/css/extra.css
+
+theme:
+  name: material
+  custom_dir: docs/theme/overrides
+  logo: assets/icons/icos_logo2.webp
+  favicon: assets/favicon.png
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.top
+    #- navigation.tabs.sticky
+    #- navigation.expand
+    - navigation.sections
+    - navigation.indexes
+    - toc.follow
+    #- toc.integrate
+    - search.suggest
+    - search.highlight
+    - search.share
+    - header.autohide
+    - navigation.footer
+    - content.code.copy
+    - content.code.annotate
+
+  font:
+    text: Montserrat
+    #code: Roboto Mono
+
+  palette:
+
+    # Palette toggle for light mode
+    - scheme: default
+      primary: teal
+      accent: teal
+      media: "(prefers-color-scheme: light)"
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: icos
+      media: "(prefers-color-scheme: dark)"
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+ 
+markdown_extensions:
+
+  - toc:
+      permalink: true
+
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+  # callouts
+  - admonition
+  - pymdownx.details
+
+  # grids
+  - md_in_html
+  - attr_list
+  # icons
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+  # code blocks
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+
+  # content tabs
+  - pymdownx.tabbed:
+      alternate_style: true
+
+  - tables
+  - footnotes
+
+  # additional formatting
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+
+  # lists
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra:
+  status:
+    draft: this page is under construction and not yet finalised
+
+  social:
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/icos_project
+    - icon: fontawesome/solid/globe
+      link: https://www.icos-project.eu/
+    - icon: fontawesome/brands/youtube
+      link: https://youtube.com/@icos_project
+    - icon: fontawesome/brands/linkedin
+      link: http://linkedin.com/company/icos-project
+
+
+plugins:
+  - search
+  - tags
+  
+  - swagger-ui-tag:
+      tryItOutEnabled: true
+  #- render_swagger:
+  #    allow_arbitrary_locations : true
+  - group:
+      enabled: !ENV CI
+      verbose: true
+      plugins:
+        - minify
+  - multirepo:
+      cleanup: true
+      #keep_docs_dir: true
+      repos:
+        - section: Coordination Module
+          section_path: Developer/Components/Security
+          import_url: 'https://production.eng.it/gitlab/icos/security/coordination-module?branch=main'
+        - section: Dynamic Policy Manager
+          section_path: Developer/Components
+          import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/dynamic-policy-manager?branch=main&docs_dir=docs/*'
+        - section: Job Manager
+          section_path: Developer/Components
+          import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/job-manager?branch=test-maria-docs'
+        #disable because the swagger file is not add in the first release of matchmakin docs
+        #- section: Match Making
+        #  section_path: Developer/Components
+        #  import_url: 'https://https://production.eng.it/gitlab/icos/meta-kernel/match-making?branch=master&docs_dir=docs/*'
+        - section: Shell Client
+          section_path: Developer/Components/Shell
+          import_url: 'https://production.eng.it/gitlab/icos/shell?branch=main&docs_dir=client/docs/*'
+        - section: Shell Backend
+          section_path: Developer/Components/Shell
+          import_url: 'https://production.eng.it/gitlab/icos/shell?branch=main&docs_dir=backend/docs/*'
+        - section: Telemetry Agent
+          section_path: Developer/Components
+          import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/observability/telemetry-agent?branch=main&docs_dir=docs/*'
+        
+  - awesome-pages:
+      filename: .pages
+      collapse_single_pages: false
+      order: asc
+      sort_type: natural
+      order_by: title
+  - mkdocs-nav-weight
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - git-authors
+  
+  
+

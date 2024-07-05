@@ -1,0 +1,60 @@
+stages:
+  - build
+  - deploy
+  - publish
+
+build:
+  stage: build
+  image: harbor.res.eng.it/resengit/gitlab/mkdocs-material-builder-image:v0.2
+  variables:
+    GithubAccessToken: $PROJECT_TOKEN
+  script:
+    - mkdocs build
+  artifacts:
+    paths:
+      - site
+
+
+deploy-to-staging:
+  stage: publish
+  image:
+    name: rclone/rclone:latest
+    entrypoint: [""]
+  script:
+    - wget -O - ipinfo.io
+    - rclone config create icos-doc-dev webdav url https://docs.dev.icos.91.109.56.214.sslip.io/uploader vendor other user "$WEBSITE_UPLOAD_USER" pass "$WEBSITE_UPLOAD_PASSWORD"
+    - rclone sync site icos-doc-dev:/docs
+  only:
+    - develop
+
+.job-with-keys-configure:
+  before_script:
+    # copy the private key from the gitlab variable
+    - echo "$GITLAB_PUBLIC_WEBSITE_PRIVATE_KEY_BASE64" | base64 -d > ssh_priv_key
+    - chmod 400 ssh_priv_key
+    # configure ssh to not verify host keys (because we cannot interactively do it)
+    - mkdir ~/.ssh
+    - cp "$PUBLIC_WEBSITE_SSH_KNOWN_HOST" ~/.ssh/known_hosts
+    - apk add rsync openssh
+
+deploy-to-production:
+  extends: .job-with-keys-configure
+  stage: deploy
+  image:
+    name: alpine
+  script:
+    # use rsync to sync files on remote server
+    - rsync -auvz -e "ssh -i ssh_priv_key" ./site/* "${PUBLIC_DEPLOYMENT_USER}@${PUBLIC_DEPLOYMENT_SERVER_IP}:./docs"
+  only:
+    - main
+
+publish-in-production:
+  stage: publish
+  image:
+    name: alpine
+  when: manual
+  extends: .job-with-keys-configure
+  script:
+    - ssh -i ssh_priv_key "${PUBLIC_DEPLOYMENT_USER}@${PUBLIC_DEPLOYMENT_SERVER_IP}" cp -rf './docs/*' '/var/www/html/docs'
+  only:
+    - main

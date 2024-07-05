@@ -1,0 +1,6 @@
+# used by awesome-pages plugin to build the index
+nav:
+  - index.md
+  - Architecture.md
+  - Functionalities
+  - glossary.md
