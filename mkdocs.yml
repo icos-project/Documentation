@@ -174,7 +174,7 @@ plugins:
           section_path: Developer/Components
           import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/observability/telemetry-agent?branch=main&docs_dir=docs/*'
         - section: Distributed and Parallel Execution
-          section_path: Developers/Components
+          section_path: Developer/Components
           import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/dp-exec?branch=main&docs_dir=docs/*'
 
         
