@@ -4,7 +4,7 @@ This demo shows zenoh network that publish data from a python publisher, there i
 
 In this demo you will see Zenoh deployed using docker-compose and InfluxDB docker image.
 
-![Zenoh Demo](../../../../assets/icons/zenoh_demo.png)
+![Zenoh Demo](../../../../assets/images/zenoh_demo.png)
 
 
 # How to run the demo.

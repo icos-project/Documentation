@@ -12,7 +12,7 @@ lighthouse: LIGHTHOUSE_ADDRESS:PORT
 
 ```
 
-??? note
+!!! note
 	you do not have to define the controller address in the config file, 
 	you can also just rely on the lighthouse.
 
@@ -32,6 +32,16 @@ Check if you application was deployed successfully:
 
 ```bash
 ./icos-shell --config=configuration.yml get deployment
+```
+To remove a deployment, it first has to be stopped:
+
+```bash
+./icos-shell --config=configuration.yml stop deployment --id shell-demo-application-1745847974359
+```
+Stopped deployments can then be deleted:
+
+```bash
+./icos-shell --config=configuration.yml delete deployment --id shell-demo-application-1745847974359
 ```
 For more details, refer to the README.md file of the repository.
 

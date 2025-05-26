@@ -3,18 +3,30 @@ status: draft
 review:
   editor: BSC
   version: 0.2
-  comment: reviewed the content. It can published and removed this able.
-  history: ENG as reported in the issue try to add a zenoh example. ENG edits the 1st draft version as from the [ICOS home page](https://www.icos-project.eu/architecture)
 --->
 
 # Data Management
 
-The Data Management Module is responsible for managing all data required in ICOS, as well as the efficient 
-execution layer of data-based applications and services used in ICOS. Its main functionalities include:
+The Data Management component is responsible for managing and enabling access to data across the different layers of ICOS. It optimizes performance by leveraging the architectural continuum characteristics.
+As a transversal component within the ICOS architecture, it supports the diverse data needs of other layers. 
+It ensures the transparency of the infrastructure's distribution and heterogeneity while providing 
+efficient data access.
 
-- Data distribution across the continuum, taking advantage of the entire available infrastructure
-- Smart data placement and dynamic adaptation to changes in the infrastructure during operation: devices joining or leaving, reorganizations, etc
-- Seamless access to data in ICOS, regardless of the location (device or cloud) or nature of resource (in-motion or at-rest), by providing an integrated data platform spanning the whole continuum
-- Minimization of data transfers to improve performance and trust, by exploiting near-data processing invarious types of devices.
+At a high level, the Data Management Layer addresses three key needs related to data:
 
-An example is provided in the [Example Zenoh section](zenoh.md). 
+- **Transport**: This includes data messaging, brokering, and managing data in motion.
+- **Mutable Data Structures**: Handling data that requires concurrent access and modification.
+- **Compute**: Supporting data-intensive computations that benefit from data locality.
+
+Although these areas overlap to some extent, they effectively represent the core pillars the Data Management Layer provides to the ICOS project.
+
+
+The Data Management Layer in ICOS will be fulfilled by two software blocks:
+
+- [Zenoh]( https://zenoh.io/): A pub/sub/query protocol.An example is provided in the [Example Zenoh section](zenoh.md). 
+- [dataClay](https://dataclay.bsc.es/): A distributed active object store.
+
+More details about the techinical description are available at : [D4.2 Data management, Intelligence and Security Layers (IT-2)](https://www.icos-project.eu/deliverables/)
+
+
+

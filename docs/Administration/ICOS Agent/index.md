@@ -31,9 +31,9 @@ During the installation, the following information will be needed:
 - Credentials and endpoint to access the [Wazuh server](https://wazuh.com/install/).
 
 <figure markdown="1">
-![Nuvla Edge with ICOS Controller](../../assets/icons/nuvlaedgeWithICosController.png){: style="width:360px;"}
+![Nuvla Worker with ICOS Controller](../../assets/images/nuvlaedgeWithICosController.png){: style="width:360px;"}
 </figure>
-<p style="text-align: center;font-size:13px;color:blue;">Fig.1: Nuvla Edge with ICOS Controller</p>
+<p style="text-align: center;font-size:13px;color:blue;">Fig.1: Nuvla Worker with ICOS Controller</p>
 
 <div class="grid cards" markdown>
 
@@ -45,13 +45,21 @@ During the installation, the following information will be needed:
 
     [&rarr; Getting started](installation.md)
 
+-   :books:__Set up Orchestrators__
+
+    ---
+
+    Install Control Plane
+
+    [&rarr; Getting started](Orchestrator Agents/controlplane.md)
+
 -   :books:__Set up Telemetry Agent__
 
     ---
 
     Install ICOS Telemetry Agent and running in 5 minutes
 
-    [&rarr; Installation](../Computational Resources/telemetryagent.md)
+    [&rarr; Installation](../ICOS Worker/telemetryagent.md)
 
     
 </div>

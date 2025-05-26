@@ -29,3 +29,11 @@ in constrained devices will be provided. The models will be stored in the so-cal
 policies for privacy and trustworthiness. Functionality for models to be trained in a federated learning 
 fashion to ensure data protection in datasets containing user-specific data will be provided as well as 
 explainable AI algorithms to provide reassurance of output of models to the different layers in ICOS.
+
+Additionally ICOS provides containers to support ICOS users.
+
+**AI Support**: AI support containers for ICOS users. These containers provide a consistent environment for
+running AI workloads, using the same library versions as the Intelligence controller. This allows users to train 
+models and contribute them to the AI Models and Data Repository, continuously expanding the available online models. 
+Additionally, these containers will facilitate seamless integration with data management libraries like dataClay, 
+enabling AI offloading across the ICOS infrastructure.

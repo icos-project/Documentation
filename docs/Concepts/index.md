@@ -1,5 +1,5 @@
 ---
-weight: 1
+weight: 2
 ---
 
 # Overview
@@ -8,33 +8,13 @@ The guide provides a theoretical introduction to the ICOS Meta OS introducing th
 the main functionalities and the main components. 
 This guide is intended for persons that want to be introduced to ICOS, what it is and how it works.
 
+**<p style="text-align:center">:book:&nbsp;LEARN</p>**
+
 <div class="grid cards" markdown>
 
--   :books: __Architecture__
-
-    ---
-
-    Learn the ICOS Architecture
-
-    [&rarr; Architecture](Architecture.md)
-
-
--  :books:  __Functionalities__
-
-    ---
-
-    Discover the main functionalities of ICOS.  
-    
-    [&rarr;  Functionalities](Functionalities)
-
--  :books:  __Glossary__
-
-    ---
-
-    Use Glossary for the definitions of ICOS concepts and artefacts described in the ICOS documentation.
-
-
-    [&rarr;  Glossary](glossary.md)
+-  :memo:  __[Learn the ICOS Architecture](Architecture.md)__
+-  :link:  __[Discover the main functionalities of ICOS](Functionalities)__
+-  :books:  __[Glossary of ICOS concepts and artifacts](glossary.md)__
 
 </div>
 

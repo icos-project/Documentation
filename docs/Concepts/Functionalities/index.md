@@ -1,23 +1,21 @@
 ---
-weight: 1
+weight: 2
 ---
+
 # Overview
-This section provides the main functionalities and main components for ICOS system.
 
+This guide is intended for persons that want to learn about the functionalities of the ICOS MetaOS services.
 
+**<p style="text-align:center">:book:&nbsp;LEARN</p>**
 
 <div class="grid cards" markdown>
 
-- :space_invader:  __[AIOps](aiops.md)__
-   
-- :loop: __[Continuum Management](continuummanagement.md)__
-
-- :file_folder: __[Data Management](data-management/datamanagement.md)__
-
-- :microscope:  __[Observability](observability.md)__
-
-- :magic_wand:  __[Orchestration](orchestration.md)__
-
-- :closed_lock_with_key:   __[Security](security.md)__
+-  :open_file_folder:  __[data management](data-management/datamanagement.md)__
+-  :computer:  __[AIOPs](aiops.md)__
+-  :curly_loop:  __[Continuum Management](continuummanagement.md)__
+-  :microscope:  __[Observability](observability.md)__
+-  :no_entry_sign:  __[Security](security.md)__
 
 </div>
+
+

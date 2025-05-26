@@ -1,0 +1,22 @@
+{#-
+  Extend the original copyright.html (https://github.com/squidfunk/mkdocs-material/blob/master/material/templates/partials/copyright.html) to add a build number (coming from the "extra.version" value in mkdocs.yml).
+  This is a workaround, because the proper way would be to either use tags in the public github repository (that would be shown in the upper right corner) or use the versioning plugin.
+-#}
+<div class="md-copyright">
+  {% if config.copyright %}
+    <div class="md-copyright__highlight">
+      {{ config.copyright }}
+    </div>
+  {% endif %}
+  {% if not config.extra.generator == false %}
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  {% if config.extra.build_number %}
+     Version: {{ config.extra.build_number }}
+  {% endif %}
+  {% endif %}
+</div>
+
+

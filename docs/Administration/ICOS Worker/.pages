@@ -1,0 +1,6 @@
+# used by awesome-pages plugin to build the index
+pages:
+    - Computational Resources: 
+    - index.md
+    - preparededgeinfrastructures.md
+    - Orchestrator Agents/

@@ -1,74 +1,34 @@
 ---
-weight: 4
+weight: 2
+  
 ---
 
-#Developer Guide 
-This section takes you through all you need to know to interact  with the ICOS components.
+# Developer Guide 
 
-Specifically, you can interact with the ICOS Components through the HTTP requests.
+This section provides all the essential information you'll need to interact with the ICOS components.
 
-Before starting to read how to use the ICOS API components, it's reccomended to read the 
-[Concepts](../Concepts) architecutre, functionalities of the ICOS system.
+You can interact with these components using HTTP requests.
+
+**<p style="text-align:center">:book:&nbsp;Suggestion</p>**
+
+Before diving into how to use the ICOS Component API, it's recommended to first review the
+
+<div class="grid cards" markdown>
+
+- :eyes:  __[concepts ICOS Architecture](../Concepts/Architecture.md)__
+
+- :flashlight:  __[functionalities](../Concepts/Architecture.md)__
+
+</div>
+ 
+**<p style="text-align:center">:book: Learn</p>**
 
 
 <div class="grid cards" markdown>
 
--   :books:   __Dynamic Policy Manager__
+- :memo:  __[ICOS Core Suites](Suites/overview.md)__
 
-    ---
-     
-    The guide of the ICOS policiy manager: how to create an icos policy, api, how to use.
-
-    [&rarr; Dynamic Policies Manager](Components/dynamic-policy-manager)
-
--   :books:  __Job Manager__
-
-    ---
-
-	The guide for the ICOS Job Manager about the usage of the API.
-	
-    [&rarr; Job Manager](Components/job-manager/api)
-
--   :books:  __Match Making__
-
-    ---
-
-	Learn how to use the ICOS Match Making.
-	
-    [&rarr; Match Making](Components/Matchmaking/README.md)
-
--   :books:   __Security__
-
-    ---
- 
- 	The guide for the ICOS Telemetry Agent : installation, how to use.
-    
-    [&rarr; Lomos API2](Components/Security/lomosapi2.md)
-    
-    [&rarr; Coordination Module](Components/Security/coordination-module)
-    
-    [&rarr; Security Audit](Components/Security/securityAudit.md)
-
--   :books:   __Shell__
-
-    ---
-    
-    ICOS Shell consist of backend, client and light-house, for each part is provided information about usage, installation, models, 
-    api, authorization.
-    
-    [&rarr; Shell Backend](Components/Shell/shell-backend/)
-    
-    [&rarr; Shell Client](Components/Shell/shell-client/icos-shell.md)
-    
-    [&rarr; Lighthouse](../Administration/ICOS System/Lighthouse/#controller-lighthouse-registration-service)
-
--   :books:   __Telemetry Agent__
-
-    ---
- 
- 	The guide for the ICOS Telemetry Agent : installation, how to use.
-    [&rarr; Telemetry Agent](Components/telemetry-agent/installation.md)
-
+- :anchor:  __[Components](Components/index.md)__
 
 </div>
 

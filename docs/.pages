@@ -3,5 +3,6 @@ nav:
   - index.md
   - Concepts
   - Administration Guide: Administration
-  - Developer Guide: Developer
   - User Guide: User
+  - Developer Guide: Developer
+  

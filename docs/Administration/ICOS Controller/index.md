@@ -3,36 +3,34 @@ weight: 2
 ---
 
 # ICOS Controller
-The ICOS Controller is responsible for managing the [ICOS continuum (Cloud-Edge-IoT)](https://www.icos-project.eu/). 
-(keeping track of the topology and availability of the current system) 
-and the run-time (launching and monitoring the execution of services on-demand)
- 
-Each ICOS Controller manages a set of Agents based on a proximity criteria; 
-hence, ICOS Controllers are deployed on resource-rich computing facilities along 
-the continuum to cover the whole geographical area.
-The specific functionalities of the ICOS controller are further divided into two main components.
+The ICOS Controller is responsible for managing the  [ICOS continuum (Cloud-Edge-IoT)](https://www.icos-project.eu/),
+which includes tracking the topology and availability of the current system, as well as managing runtime operations, such as launching and monitoring the execution of services on demand.
+Each ICOS Controller manages a set of Agents based on proximity criteria. 
+As a result, ICOS Controllers are deployed on resource-rich computing facilities across the continuum to ensure comprehensive geographical coverage.
+The specific functionalities of the ICOS Controller are divided into two main components:
 
-- **Continuun Manager**.
-- **Runtime Manager**.
+- **[Continuum Manager](#continuum-manager)**.
 
+- **[Runtime Manager](#run-time-manager)**.
 
-### Continuum Manager:
-The Continuum Manager is responsible to:
+### Continuum Manager
 
-- Keeping track of the current and future (forecast) state of the infrastructure and 
-  their availability (Aggregator). 
+The Continuum Manager is responsible for:
 
-- On-boarding new resources to the [continuum resource & cluster manager](../Computational Resources/index.md).
+- Tracking the current and forecasted state of the infrastructure and its availability (Aggregator). 
+
+- Onboarding new resources to the [continuum resource & cluster manager](../ICOS Worker/index.md).
   
-- Storing and analyzing the system collected [telemetry](../Computational Resources/telemetryagent.md).
+- Storing and analyzing the system collected [telemetry](../../Concepts/Functionalities/observability.md).
 
-### Run-time Manager:
-The Run-time Manager is responsible to:
+### Run-time Manager
 
-- Receiving the application execution request ([Shell Backend](../../Developer/Components/Shell/shell-backend))
+The Run-time Manager is responsible for:
 
-- Managing the users application execution by finding the best infrastructure to execute ([Matchmaking](../../Developer/Components/match-making/README.md)) 
-and deploying the application in the selected infrastructure ([JobManager](../../Developer/Components/job-manager/api)).
+- Receiving application execution requests via the ([Shell Backend](../../Developer/Components/Shell/backend/)).
 
-- Monitoring the execution of the application and, if there is any violation of policies, 
-  then take remediation actions ([Telemetry Agent](../../Developer/Components/telemetry-agent/installation.md)).
+- Managing the users application execution by finding the best infrastructure to execute ([Matchmaking](https://github.com/icos-project/Match-Making/)) 
+and deploying the application in the selected infrastructure ([JobManager](../../Developer/Components/Job%20Manager/jobmanager/)).
+
+- Monitoring the execution of the application and, if there is any violation of policies, then take remediation actions 
+([Telemetry Agent](https://github.com/icos-project/Telemetry-Agent)).
