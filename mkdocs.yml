@@ -1,25 +1,34 @@
 site_name: ICOS Meta OS
 site_url: https://www.icos-project.eu/docs
-
 site_author: ICOS Consortium
 site_description: >-
   This is the website for the ICOS Meta OS Software documentation
-
 copyright: >-
-  Copyright &copy; 2022 - 2024 ICOS Project
+  Copyright &copy; 2022 - 2025 ICOS Project
 
-#repo_url: 'https://production.eng.it/gitlab/icos'
-# not used but needed because otherwise the multirepo plugin thtows and exception
-edit_uri: 'https://production.eng.it/gitlab/icos/documentation'
+# Commented because GitHub is not the main source at the moment, but we are using the internal ENG GitLab repo
+# So the information that are shown would not be correct
+#repo_url: "https://github.com/icos-project/Documentation"
+edit_uri: 'edit/main/docs/'
 
 extra_css:
   - assets/css/extra.css
-
+  - https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.43.0/swagger-ui.css
 theme:
   name: material
   custom_dir: docs/theme/overrides
-  logo: assets/icons/icos_logo2.webp
+  logo: assets/images/icos_logo2.webp
   favicon: assets/favicon.png
+  icon:
+    repo: fontawesome/brands/git-alt 
+    repo: fontawesome/brands/git
+    repo: fontawesome/brands/git-alt
+    repo: fontawesome/brands/github
+    repo: fontawesome/brands/github-alt
+    repo: fontawesome/brands/gitlab
+    repo: fontawesome/brands/gitkraken
+    repo: fontawesome/brands/bitbucket
+    repo: fontawesome/solid/trash
   features:
     - navigation.instant
     - navigation.instant.progress
@@ -28,7 +37,7 @@ theme:
     - navigation.top
     #- navigation.tabs.sticky
     #- navigation.expand
-    - navigation.sections
+    #- navigation.sections
     - navigation.indexes
     - toc.follow
     #- toc.integrate
@@ -39,7 +48,6 @@ theme:
     - navigation.footer
     - content.code.copy
     - content.code.annotate
-
   font:
     text: Montserrat
     #code: Roboto Mono
@@ -50,17 +58,17 @@ theme:
     - scheme: default
       primary: teal
       accent: teal
-      media: "(prefers-color-scheme: light)"
+      media: "(prefers-color-scheme: dark)"
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
 
     # Palette toggle for dark mode
     - scheme: icos
-      media: "(prefers-color-scheme: dark)"
+      media: "(prefers-color-scheme: light)"
       toggle:
-        icon: material/brightness-7
-        name: Switch to light mode
+        icon: material/brightness-4
+        name: Switch to auto mode
 
 
     # Palette toggle for automatic mode
@@ -68,7 +76,25 @@ theme:
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
- 
+
+    # Palette toggle for light mode
+    #- media: "(prefers-color-scheme: light)"
+    #  scheme: default 
+    #  primary: teal
+    #  accent: teal
+    #  toggle:
+    #    icon: material/brightness-7
+    #    name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    #- media: "(prefers-color-scheme: dark)"
+    #  scheme: slate
+    #  primary: teal
+    #  accent: teal
+    #  toggle:
+    #    icon: material/brightness-4
+    #    name: Switch to system preference
+
 markdown_extensions:
 
   - toc:
@@ -98,8 +124,12 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
-
+  - pymdownx.snippets:
+      #base_path:
+      #- !relative $config_dir # Path of the directory that contains the main mkdocs.yml
+      #- !relative $docs_dir  # Path of the docs_dir
+      #base_path: ["docs"]
+      base_path: !relative $docs_dir
   # content tabs
   - pymdownx.tabbed:
       alternate_style: true
@@ -120,6 +150,7 @@ markdown_extensions:
       custom_checkbox: true
 
 extra:
+  build_number: !ENV BUILD_NUMBER
   status:
     draft: this page is under construction and not yet finalised
 
@@ -137,47 +168,65 @@ extra:
 plugins:
   - search
   - tags
-  
+  #- optimize
+  #- offline
   - swagger-ui-tag:
       tryItOutEnabled: true
-  #- render_swagger:
-  #    allow_arbitrary_locations : true
   - group:
       enabled: !ENV CI
-      verbose: true
+      #verbose: true
       plugins:
         - minify
   - multirepo:
       cleanup: true
-      #keep_docs_dir: true
+      keep_docs_dir: false
       repos:
-        - section: Coordination Module
-          section_path: Developer/Components/Security
-          import_url: 'https://production.eng.it/gitlab/icos/security/coordination-module?branch=main'
+        - section: Aggregator
+          section_path: Developer/Components
+          import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/aggregator?branch=icos/develop&docs_dir=docs/*'
         - section: Dynamic Policy Manager
           section_path: Developer/Components
           import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/dynamic-policy-manager?branch=main&docs_dir=docs/*'
-        - section: Job Manager
-          section_path: Developer/Components
-          import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/job-manager?branch=test-maria-docs'
-        #disable because the swagger file is not add in the first release of matchmakin docs
-        #- section: Match Making
-        #  section_path: Developer/Components
-        #  import_url: 'https://https://production.eng.it/gitlab/icos/meta-kernel/match-making?branch=master&docs_dir=docs/*'
-        - section: Shell Client
-          section_path: Developer/Components/Shell
-          import_url: 'https://production.eng.it/gitlab/icos/shell?branch=main&docs_dir=client/docs/*'
-        - section: Shell Backend
-          section_path: Developer/Components/Shell
-          import_url: 'https://production.eng.it/gitlab/icos/shell?branch=main&docs_dir=backend/docs/*'
-        - section: Telemetry Agent
-          section_path: Developer/Components
-          import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/observability/telemetry-agent?branch=main&docs_dir=docs/*'
         - section: Distributed and Parallel Execution
           section_path: Developer/Components
           import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/dp-exec?branch=main&docs_dir=docs/*'
-
-        
+        - section: Intelligence-module
+          section_path: Developer/Components
+          import_url: 'https://production.eng.it/gitlab/icos/intelligence/intelligence-module?branch=main&docs_dir=docs/*'
+        - section: Intelligence-module/Metrics Export
+          section_path: Developer/Components/Intelligence-module
+          import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/observability/metrics-export?branch=main&docs_dir=docs/*'
+        - section: Intelligence-module/ICOS FL
+          section_path: Developer/Components/Intelligence-module
+          import_url: 'https://production.eng.it/gitlab/icos/intelligence/icos-fl?branch=master&docs_dir=docs/*'
+        #- section: Job Manager
+        #  section_path: Developer/Components
+       #  import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/job-manager?branch=main' #&docs_dir=docs/*'
+        - section: Matchmaking
+          section_path: Developer/Components
+          import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/match-making.git?branch=master&docs_dir=docs/README*'
+        - section: Security
+          section_path: Developer/Components
+          import_url: 'https://production.eng.it/gitlab/icos/security/coordination-module?branch=main&docs_dir=docs/*'
+        - section: Shell
+          section_path: Developer/Components
+          import_url: 'https://production.eng.it/gitlab/icos/shell?branch=main&docs_dir=docs/*'
+        - section: Client
+          section_path: Developer/Components/Shell
+          import_url: 'https://production.eng.it/gitlab/icos/shell?branch=main&docs_dir=client/docs/*'
+        - section: Backend
+          section_path: Developer/Components/Shell
+          import_url: 'https://production.eng.it/gitlab/icos/shell?branch=main&docs_dir=backend/docs/*'
+        - section: Telemetruum
+          section_path: Developer/Components
+          import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/observability/telemetruum/telemetruum-docs?branch=main&docs_dir=docs/*'
+        - section: Topology Exporter
+          section_path: Developer/Components
+          import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/topology-exporter?branch=main&docs_dir=docs/*'
+        - section: GUI
+          section_path: User/DynamicPolicyManager
+          import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/dynamic-policy-manager-gui?branch=main&docs_dir=docs/*'
+  
   - awesome-pages:
       filename: .pages
       collapse_single_pages: false
@@ -186,8 +235,10 @@ plugins:
       order_by: title
   - mkdocs-nav-weight
   - git-revision-date-localized:
+      #type: date
       enable_creation_date: true
+      #fallback_to_build_date: true
   - git-authors
-  
-  
 
+      
+  

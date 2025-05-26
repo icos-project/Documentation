@@ -1,0 +1,9 @@
+# used by awesome-pages plugin to build the index
+nav:
+  - index.md
+  - gettingstarted.md
+  - ICOS Worker
+  - ICOS Core
+  - ICOS Agent
+  - ICOS Controller
+  - troubleshooting.md
