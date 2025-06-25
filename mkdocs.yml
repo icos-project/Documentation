@@ -178,6 +178,7 @@ plugins:
       plugins:
         - minify
   - multirepo:
+      enabled: !ENV [ENABLE_MKDOC_MULTIREPO, True]
       cleanup: true
       keep_docs_dir: false
       repos:
@@ -224,7 +225,7 @@ plugins:
           section_path: Developer/Components
           import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/topology-exporter?branch=main&docs_dir=docs/*'
         - section: GUI
-          section_path: User/DynamicPolicyManager
+          section_path: User/Policies
           import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/dynamic-policy-manager-gui?branch=main&docs_dir=docs/*'
   
   - awesome-pages:
