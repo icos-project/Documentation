@@ -1,10 +1,3 @@
----
-status: draft
-review:
-  editor: IBM
-  version: 0.1
----
-
 # ClusterLink Installation Guide
 
 The information here is based on [ClusterLink documentation](https://clusterlink.net/docs/v0.4/getting-started/users/).

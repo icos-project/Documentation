@@ -45,6 +45,8 @@ Before deploying a new ICOS Controller the ICOS IAM service must configured crea
     | matchmaker                 | client authentication, authorization                                                                 |
     | security-coordinator       | client authentication                                                                                |
     | telemetry-grafana          | client authentication, [ad hoc configuration](telemetry-dashboards.md#iam-configuration-for-grafana) |
+    | topology-exporter          | client authentication, authorization                                                                 |
+
 
 2. Then create a new user for the Shell Backend (follow the instructions [here](../ICOS%20Core/IAM.md#create-a-user).
 

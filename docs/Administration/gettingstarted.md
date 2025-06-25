@@ -14,8 +14,8 @@ There are four different type of nodes, each of them providing different functio
 A more in-depth explaination of the ICOS nodes can be found in the [ICOS Architecture](../Concepts/Architecture.md) section.
 
 <figure markdown="span">
-![An ICOS Continuum](./images/icos-continuum.png#only-light){ align=center }
-![An ICOS Continuum](./images/icos-continuum-dark.png#only-dark){ align=center }
+![An ICOS Continuum](../../assets/images/icos-continuum.png#only-light){ align=center }
+![An ICOS Continuum](../../assets/images/icos-continuum-dark.png#only-dark){ align=center }
 </figure>
 
 ## An ICOS Continuum
@@ -53,8 +53,8 @@ The organization wants to establish an ICOS Continuum using:
 - one K3s cluster installed in each home device to install the ICOS Workers.
 
 <figure markdown="span">
-![Example ICOS Continuum infrastructure](./images/icos-continuum-2.png#only-light){ align=center }
-![Example ICOS Continuum infrastructure](./images/icos-continuum-2-dark.png#only-dark){ align=center }
+![Example ICOS Continuum infrastructure](../../assets/images/icos-continuum-2.png#only-light){ align=center }
+![Example ICOS Continuum infrastructure](../../assets/images/icos-continuum-2-dark.png#only-dark){ align=center }
   <figcaption>Example ICOS Continuum infrastructure</figcaption>
 </figure>
 
@@ -177,7 +177,7 @@ Imagining that we selected OCM as orchestrator, we proceeed with the installatio
 
 In the same cluster where the orchestrator has been installed, we are now going to install the ICOS Agent software. Unlike for the previous nodes, here we don't have a Cloud LoadBalancer but we just have a single DNS name (`icos-agent.acme.com`) already configured to direct the traffic to our traffic. In addition, we want to deploy the services in a not standard port (`31500`).
 
-Following the instructions in the **[Deploy a new ICOS Agent](./ICOS%20Agent/installation.md)** section, we first create the necessary configuration (clients and users) in the IAM service connecting to it at `https://iam.core.example.org/`. Then, we prepare the Helm values file as follow:
+Following the instructions in the [Deploy a new ICOS Agent](./ICOS%20Agent/installation.md) section, we first create the necessary configuration (clients and users) in the IAM service connecting to it at `https://iam.core.example.org/`. Then, we prepare the Helm values file as follow:
 
 ```yaml
 global:

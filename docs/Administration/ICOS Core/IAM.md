@@ -50,7 +50,7 @@ To retrieve the public key, first log-in to the Keycloak Administration Console 
 
 
 <figure markdown="span">
-![Public Key](./images/keycloak-publickey.png){ align=center }
+![Public Key](../../assets/images/keycloak-publickey.png){ align=center }
   <figcaption>Get the Public Key</figcaption>
 </figure>
 
@@ -64,7 +64,7 @@ To create a new user, first log-in to the Keycloak Administration Console ([see 
 3. Click on **Add User**
 
 <figure markdown="span">
-![Create a user - Step 1](./images/keycloak-createuser-1.png){ align=center }
+![Create a user - Step 1](../../assets/images/keycloak-createuser-1.png){ align=center }
   <figcaption>Create User - Step 1</figcaption>
 </figure>
 
@@ -74,7 +74,7 @@ In the wizard, fill-in the user details and click on **Save**
     Make sure also `email`, `First name` and `Last name` fields are filled. They are required to have a valid user
 
 <figure markdown="span">
-![Create a user - Step 2](./images/keycloak-createuser-2.png){ align=center }
+![Create a user - Step 2](../../assets/images/keycloak-createuser-2.png){ align=center }
   <figcaption>Create User - Step 2</figcaption>
 </figure>
 
@@ -87,8 +87,8 @@ Finally, set a password for the new user:
 4. Click on **Save**
 
 <figure markdown="span">
-![Create a user - Step 2](./images/keycloak-createuser-3.png){ align=center }
-  <figcaption>Create User - Step 2</figcaption>
+![Create a user - Step 2](../../assets/images/keycloak-createuser-3.png){ align=center }
+  <figcaption>Create User - Step 3</figcaption>
 </figure>
 
 

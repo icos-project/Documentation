@@ -44,9 +44,13 @@ The user needs to specify which one to use using the values `ocm-descriptor.enab
 
 Installing a new ICOS Agent requires several configuration values to be known before starting the installation. Most of those parameters are related to the ICOS Controller and Core configuration (endpoints, routing, secrets). This problem will be mitigated by a CLI, still under development, that will reduce the number of needed parameters.
 
-Before starting the installation, the ICOS Agent needs a Oauth2 client to be created in the IAM service before starting the installation. The client must be enabeled for the Client Credentials Grant flow. In the IAM, this translates to activate the "Service Accounts Roles" Authentication flow. "Client authentication" should be enabled as well to have a confidential (with password) client.
+Before starting the installation, create the following list of new OpenID Client in the continuum's IAM service (refer to [this documentation](../ICOS%20Core/IAM.md#create-an-openid-connect-client)):
 
-Create a file named **values.yaml** with the following content (customize the values to match 
+| Name   (can be customized) | Capabilities                         |
+| -------------------------- | ------------------------------------ |
+| my-agent.dm                | client authentication, authorization |
+
+Then, create a file named **values.yaml** with the following content (customize the values to match 
 your deployment):
 
 ```yaml
@@ -60,13 +64,16 @@ global:
 
     # needed only if ocm-descriptor: true
     ocmDM:
+      # client id and client secret from the OpenID Client created before
       iamClientId: ****
       iamClientSecret: ****
 
     # needed only if nuvla.enabled: true
     nuvlaDM:
+      # client id and client secret from the OpenID Client created before
       iamClientId: ****
       iamClientSecret: ****
+      # to be created in the Nuvla Portal
       nuvlaApiKey: ****
       nuvlaApiSecret: ****
 

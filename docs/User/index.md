@@ -1,5 +1,5 @@
 ---
-weight: 4
+weight: 3
   
 ---
 
@@ -22,7 +22,7 @@ for orchestrating their application.
 	Definition of the minimalist syntax required to provide ICOS with an agnostic application descriptor manifest for execution on the ICOS system.
 
 
--   :computer:&nbsp;__[Dynamic Policy Manager Graphical User Interface](DynamicPolicyManager/gui/index.md)__ 
+-   :computer:&nbsp;__[Dynamic Policies Manager GUI](Policies/gui/index.md)__ 
 
     ---
 	With an intuitive layout and user-friendly navigation, the interface enables users to easily view, create, and manage policies.

@@ -4,8 +4,8 @@
 Each ICOS node (excepting for the Workers) runs multiple services that needs to be exposed to be called by other nodes. For instance, each ICOS Controller exposes the `Shell Backend` service that is called by the `ICOS Shell CLI` and the `Job Manager` that is called by the ICOS Agents. Similarly, the ICOS Agents expose the `Telemetry Gateway` service that is called by the ICOS Workers.
 
 <figure markdown="span">
-![An ICOS Continuum](./images/suites-services-light.png#only-light){ align=center }
-![An ICOS Continuum](./images/suites-services-dark.png#only-dark){ align=center }
+![An ICOS Continuum](../../assets/images/suites-services-light.png#only-light){ align=center }
+![An ICOS Continuum](../../assets/images/suites-services-dark.png#only-dark){ align=center }
   <figcaption>Services exposed by ICOS nodes</figcaption>
 </figure>
 
@@ -211,7 +211,7 @@ Documentation on more configuration options is available in [GitHub](https://git
 !!! important
     Only **one instance** of the `ICOS Ingress Controller` must exist in the cluster. In deployment schema where multiple ICOS Suites are deployed in the same cluster, make sure to activate the `ICOS Ingress Controller` in only one of them.
 
-## Insecure exposure with http
+### Insecure exposure with http
 
 It is possible to expose the ICOS services also using the **http** protocol. However this is not recommended for obvious security risks.
 
@@ -256,3 +256,7 @@ global:
 icos-ingress-controller:
   enabled: false
 ```
+
+## Exposure of Zenoh
+
+The ICOS Controller, Agent and Worker Suites include a deployment of **Zenoh**. Since, unlike all the other services exposed in the Suites, Zenoh does not use the HTTP protocol, but TCP connections. For this reason, it cannot be (easily) exposed using the routing options described in the previous sections. For this reason, at the moment, when Zenoh is enabled in the ICOS Controller and ICOS Agent Suites (`zenoh.enabled: true`), it will create a NodePort service on port `32700` (customizable).
