@@ -16,7 +16,7 @@ for orchestrating their application.
 
 <div class="grid cards" markdown>
 
--   :memo:&nbsp;__[Application Descriptor](applicationmodel.md)__
+-   :memo:&nbsp;__[Application Descriptor](Application Descriptor/index.md)__
 
     ---
 	Definition of the minimalist syntax required to provide ICOS with an agnostic application descriptor manifest for execution on the ICOS system.
