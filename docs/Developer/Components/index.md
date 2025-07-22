@@ -7,6 +7,7 @@ Components provides tutorials and instructions on how to use and interact the IC
 - [Dynamic Policy Manager](dynamic-policy-manager/)
 - [Intelligence Module](intelligence-module/index.md)
 - [Matchmaking](matchmaking/docs/)
+- [Policy Manager GUI](policy-manager-gui/)
 - [Security](security/)
 - [Shell](shell/api/)
 - [Telemetruum](telemetruum/Metrics/topology/)

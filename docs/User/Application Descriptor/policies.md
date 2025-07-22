@@ -38,6 +38,8 @@ manifests:
    ...
 ```
 
+Unless specifie, each policy listeb below can be defined both at policy level (it will be applied to all the components of the app) or at component level (it will be applied only to the component where it is defined).
+
 ## Security
 
 ### Node Security Level
@@ -59,6 +61,24 @@ Levels:
 - **high**: SCA score >= 80
 - **medium**: SCA score >= 50 and < 80
 - **low**: SCA score >= 0 and < 50
+
+### Security Events
+
+This policy is based on the auditing events collected by ICOS on the workers. It is possible to trigger a violation when the number of generated events (optionally filtered by `severity` and/or `eventName`) is higher than a given threshold (`maxEvents`).
+
+```yaml
+
+policies:
+  - type: custom
+    fromTemplate: app-security-events
+    remediation: redeploy
+    variables:
+      maxEvents: 12
+      severity: "high"  # If omitted, all severity levels are considered
+      eventName: "outside-connection"  # A regex can be used here. If omitted, it corrsponds to ".+"
+```
+
+In order for this policy to work, the auditing events must be enabled in the worker (the `icos-auditing: true` value should be provided when installing the ICOS Worker Suite).
 
 ## Resources Usage and Availability
 
@@ -111,6 +131,8 @@ The **default remediation action** is: `redeploy`.
 ### Components Reachability
 
 This policy monitors the ICOS telemetry data sent automatically for each app deployed. When this data is not received for a given amount of time the policy is violated. If the telemetry data is not received it is very likely that the node has been disconnected or crashed, or the app has been manually removed.
+
+**This policy can only be specified at component level.**
 
 ```yaml
 

@@ -54,12 +54,28 @@ More information can be retrieved also from the official [Grafana documentation]
 
 ## ICOS Agent View Dashboard
 
-The **ICOS Agent View** dashboards provide an overview of the entire ICOS Continuum.
+The **ICOS Agent View** dashboard provides an overview of the entire ICOS Continuum.
 
 <figure markdown="span">
 ![ICOS Agent View Dashboard](../../assets/images/grafana-agent-view.png){ align=center }
   <figcaption>ICOS Agent View Dashboard</figcaption>
 </figure>
 
+
+## ICOS App View Dashboard
+
+The **ICOS App View** dashboard provides an overview of the status of the applications deployed by ICOS.
+
+<figure markdown="span">
+![ICOS App View Dashboard](../../assets/images/grafana-app-view.png){ align=center }
+  <figcaption>ICOS App View Dashboard</figcaption>
+</figure>
+
+The main information in this dashboard are:
+
+- on which nodes the application's components are deployed
+- the resources (CPU, Memory, Disk, Energy) used by each component 
+- the CPU and Memory usage in the nodes where the application's components are running
+- the policies set for the application and their enforcement status
 
 [^1]: https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/

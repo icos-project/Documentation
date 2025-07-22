@@ -21,7 +21,6 @@ hide:
 This is the page of the ICOS Meta OS 's documentation like architecture, main functionalities, how to use, configure ICOS Meta OS 
 and running applications.
 
-
 ## <p style="text-align:center">**GUIDES**</p>
 
 

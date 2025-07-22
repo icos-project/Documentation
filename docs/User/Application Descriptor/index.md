@@ -4,12 +4,25 @@
 
 ICOS is a technology agnostic Meta Operating System. The aim of this document is to define the minimalist syntax required to provide ICOS with an agnostic Application Descriptor manifest to run on the ICOS system. 
 
+## Naming Guidelines for Application and Components
+All 'name' fields including for the application, components and manifests ** must follow the kuberntes RFC 1123 ** naming convention. This applies sepcifically to the application descriptor YAML file.
+
+- All names (application, components, namespace) must use only lowercase characters (a-z) and hyphens (-).
+
+- Avoid uppercase characters and underscore(_), as they cause deployment failures.
+
+- Names must start with and end with a letter or number and match the pattern: <pre> ``` [a-z0-9]([-a-z0-9]*[a-z0-9])? ``` </pre>
+
+- Incorrect names will block deployment and break telemtery i.e. Grafana and Policy Manager.
+
+
+
 ## Application model
 
 An application is made of a set of components and the interaction between them. Different entities that do not make sense separately (for instance a Deployment and the Service exposing it) should be defined as part of the same component. Therefore, they will run in the same resources (which could be a list of nodes in the same cluster). The service exposes the deployed component to facilitate communication with other components of the application.
 
 !!! Note 
-	Having two manifests with requirements for the same component does not make sense, because in fact we created the component so that we can group together entities that do not need computational resources with entities that need them. (Aka. Docker compose does this grouping and calls it a service).
+	having two manifests with requirements for the same component does not make sense, because in fact we created the component so that we can group together entities that do not need computational resources with entities that need them. (Aka. Docker compose does this grouping and calls it a service).
 
 ## Overall structure of the application descriptor file
 

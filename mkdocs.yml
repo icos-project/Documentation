@@ -224,8 +224,8 @@ plugins:
         - section: Topology Exporter
           section_path: Developer/Components
           import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/topology-exporter?branch=main&docs_dir=docs/*'
-        - section: GUI
-          section_path: User/Policies
+        - section: Policy Manager GUI
+          section_path: Developer/Components
           import_url: 'https://production.eng.it/gitlab/icos/meta-kernel/dynamic-policy-manager-gui?branch=main&docs_dir=docs/*'
   
   - awesome-pages:

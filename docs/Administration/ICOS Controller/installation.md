@@ -39,13 +39,15 @@ Before deploying a new ICOS Controller the ICOS IAM service must configured crea
 
 1. First, create the following list of new OpenID Client (refer to [this documentation](../ICOS%20Core/IAM.md#create-an-openid-connect-client)):
 
-    | Name   (can be customized) | Capabilities                                                                                         |
-    | -------------------------- | ---------------------------------------------------------------------------------------------------- |
-    | dynamic-policy-manager     | client authentication                                                                                |
-    | matchmaker                 | client authentication, authorization                                                                 |
-    | security-coordinator       | client authentication                                                                                |
-    | telemetry-grafana          | client authentication, [ad hoc configuration](telemetry-dashboards.md#iam-configuration-for-grafana) |
-    | topology-exporter          | client authentication, authorization                                                                 |
+    | Name   (can be customized) | Capabilities                                                                                                                                                                         |
+    | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+    | dynamic-policy-manager     | client authentication, authorization                                                                                                                                                 |
+    | dynamic-policy-manager-gui | (needed only if the DPM GUI is exposed - `global.controller.dpm.exposeGui: true`)<br/>The client must be public and the RootURL and Redirect URIs must be populated wit the DPM URL. |
+    | matchmaker                 | client authentication, authorization                                                                                                                                                 |
+    | security-coordinator       | client authentication                                                                                                                                                                |
+    | telemetry-grafana          | client authentication, [ad hoc configuration](telemetry-dashboards.md#iam-configuration-for-grafana)                                                                                 |
+    | topology-exporter          | client authentication, authorization                                                                                                                                                 |
+    | job-manager                | client authentication, authorization                                                                                                                                                 |
 
 
 2. Then create a new user for the Shell Backend (follow the instructions [here](../ICOS%20Core/IAM.md#create-a-user).
@@ -74,6 +76,10 @@ global:
 
     dpm:
       iamClientId: dynamic-policy-manager
+      iamGuiClientId: dynamic-policy-manager-gui
+      iamClientSecret: ********
+    jobManager:
+      iamClientId: job-manager
       iamClientSecret: ********
     matchmaker:
       iamClientId: matchmaker

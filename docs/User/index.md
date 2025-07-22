@@ -22,9 +22,16 @@ for orchestrating their application.
 	Definition of the minimalist syntax required to provide ICOS with an agnostic application descriptor manifest for execution on the ICOS system.
 
 
--   :computer:&nbsp;__[Dynamic Policies Manager GUI](Policies/gui/index.md)__ 
+-   :memo:&nbsp;__[Deploy an application](deployapplication.md)__ 
 
     ---
-	With an intuitive layout and user-friendly navigation, the interface enables users to easily view, create, and manage policies.
+	Application Deployment Prerequisites and Connectivity Requirements for ICOS
+
+-   :memo:&nbsp;__[Monitor an application](monitorapplication.md)__ 
+
+    ---
+	Monitoring and Debugging Applications with ICOS at Runtime
+
+
 
 </div>
