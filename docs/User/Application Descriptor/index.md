@@ -310,8 +310,8 @@ policies:
 This section specifies relationships between components of the application, as shown in example 6. It outlines how the interaction between components need to be defined in terms of communication between them (which is necessary if the components run in different clusters, so that ClusterLink can be set up). Each component needs to define its communication needs within its definition. This information will also be used during scheduling to find a more accurate allocation.
 
 Each component has:
-- **incoming**: which specify the service the component provide to another component.
-- **outgoing**: which specify the service that the component depends on from another component.
+- **incoming**: which specify the service that the component depends on from another component.
+- **outgoing**: which specify the service the component provide to another component.
 
 Example 6:
 ```console
@@ -324,8 +324,9 @@ components:
       - name: component-1-deployment
       - name: component-1-svc
     communication:
-      - outgoing: component-2-svc
-      - outgoing: component-3-svc
+      outgoing: 
+        - component-2-svc
+        - component-3-svc
 
   - name: component-2
     type: kubernetes
@@ -333,7 +334,8 @@ components:
       - name: component-2-deployment
       - name: component-2-svc
     communication:
-      - incoming: component-1-svc
+      incoming: 
+        - component-1-svc
 
   - name: component-3
     type: kubernetes
@@ -341,7 +343,8 @@ components:
       - name: component-3-deployment
       - name: component-3-svc
     communication:
-      - incoming: component-1-svc
+      incoming: 
+        - component-1-svc
 
 ```
 ### Manifests

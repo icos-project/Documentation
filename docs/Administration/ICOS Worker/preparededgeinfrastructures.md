@@ -9,7 +9,7 @@ To onboard edge infrastructure into ICOS, you must choose between the following 
        
     This guide does not provide detailed instructions for installing Kubernetes 
     (For further details, we recommend referring to the [official documentation](https://kubernetes.io/docs/home/).) 
-    or Docker (For further details, we recommend referring to the [official documentation](https://www.docker.com/).), 
+    or Docker (For further details, we recommend referring to the [official documentation](https://www.docker.com/).).
 
 We offer an example of how to install K3s on a device with a single command below. 
 Depending on your choice, you can execute the corresponding commands for a basic setup that will enable you to continue with the onboarding process.

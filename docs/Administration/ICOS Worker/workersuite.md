@@ -43,9 +43,7 @@ telemetruum-leaf:
 
 ```
 
-In particular:
-
-- the `global.agent.url` and `global.agent.routing` values are mandatory and are needed to determin to which endpoint this ICOS Worker will register. These values can be retrieved from the ICOS Agent Suite's helm values.
+Specifically, the `global.agent.url` and `global.agent.routing` values are mandatory and are needed to determin to which endpoint this ICOS Worker will register. These values can be retrieved from the ICOS Agent Suite's helm values.
 
 Run the Helm installation command (making sure that the correct kubernetes config file is taken):
 
